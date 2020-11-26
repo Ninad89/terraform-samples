@@ -2,7 +2,7 @@
 
 sudo yum install -y amazon-efs-utils
 sudo mkdir /efs
-sudo mount -t efs -o tls fs-40da82b1: /efs
+sudo mount -t efs -o tls ${EFS_ID}: /efs
 sudo mkdir -p /efs/jenkins/builds
 
 
@@ -10,8 +10,8 @@ sudo yum install java-1.8.0-openjdk-devel -y
 wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 
 # export JENKINS_HOME=/efs/jenkins
-sudo nohup java -jar -Djenkins.install.runSetupWizard=false -Djenkins.model.Jenkins.buildsDir=/efs/jenkins/builds/\${ITEM_FULL_NAME} \
-jenkins.war --argumentsRealm.passwd.ninad=123 --argumentsRealm.roles.ninad=admin &
+sudo nohup java -jar -Djenkins.install.runSetupWizard=false -Djenkins.model.Jenkins.buildsDir=/efs/jenkins/builds/\$\{ITEM_FULL_NAME\} \
+/tmp/jenkins.war --argumentsRealm.passwd.ninad=123 --argumentsRealm.roles.ninad=admin &
 
 while netstat -lnt | awk '$4 ~ /:8080$/ {exit 1}'; do echo waiting..; sleep 10; done
 

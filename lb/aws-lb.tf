@@ -7,13 +7,20 @@ terraform {
   }
 }
 
+variable AWS_ACCESS_KEY {
+  type = string
+}
+
+variable AWS_SECRET_KEY {
+  type = string
+}
+
 provider "aws" {
   profile    = "default"
   region     = "eu-west-2"
-  access_key = "AKIAXODTBCJWGPYZEATM"
-  secret_key = "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"
+  access_key = var.AWS_ACCESS_KEY
+  secret_key = var.AWS_SECRET_KEY
 }
-
 data "aws_ami" "my_latest" {
   most_recent = true
   filter {

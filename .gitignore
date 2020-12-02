@@ -1,4 +1,2 @@
-.terraform/terraform.tfstate
-.terraform/plugins/selections.json
-.terraform/plugins/registry.terraform.io/hashicorp/aws/2.70.0/windows_amd64/terraform-provider-aws_v2.70.0_x4.exe
-.terraform/plugins/registry.terraform.io/terraform-providers/docker/2.7.2/windows_amd64/terraform-provider-docker_v2.7.2_x4.exe
+.terraform/
+jenkins/secrets.auto.tfvars

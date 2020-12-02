@@ -1,2 +1,2 @@
 .terraform/
-jenkins/secrets.auto.tfvars
+secrets.auto.tfvars
